@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
+import Login from "./pages/login"
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,7 +24,7 @@ function App() {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -34,7 +35,7 @@ function App() {
           </ul>
 
           <Routes>
-            <Route path="/about">
+            <Route path="/login" component={Login}>
             </Route>
             <Route path="/topics">
             </Route>
