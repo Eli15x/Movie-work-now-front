@@ -1,6 +1,7 @@
 import '../App.css';
 import { validLogin } from '../api/user'
 import React , { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default () => {
 
@@ -16,6 +17,15 @@ export default () => {
     }
 
   };
+
+  useEffect(()=> {
+    if (validUser){
+      useNavigate("/#");
+
+    }
+  
+  });
+
 
   return (
     <div className="login">

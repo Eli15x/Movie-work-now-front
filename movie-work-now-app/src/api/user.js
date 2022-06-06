@@ -3,7 +3,7 @@ export async function validLogin(email, password) {
       method: 'GET',
     }
   
-    return fetch(process.env.REACT_APP_URL_API.concat('/profile/email/'+email+'/password/'+password), opts).then((response) =>
+    return fetch("http://localhost:1323/profile/email/"+email+"/password/"+password, opts).then((response) =>
       response.json(),
     )
   }
