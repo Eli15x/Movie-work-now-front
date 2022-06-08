@@ -1,10 +1,17 @@
-export async function validLogin(email, password) {
-    const opts = {
-      method: 'GET',
-    }
-  
-    return fetch("http://localhost:1323/profile/email/"+email+"/password/"+password, opts).then((response) =>
-      response.json(),
-    )
-  }
+import axios from 'axios'
+
+export async function validLogin(email, password) { 
+
+  const data = JSON.stringify({ email, password });
+  let headers = {
+    'Content-Type': 'application/json;charset=UTF-8',
+  };
+
+  const response = await axios.post('http://localhost:1323/profile/valid', data, headers);
+
+  return response
+
+}
+
+
   

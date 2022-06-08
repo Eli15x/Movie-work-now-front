@@ -12,6 +12,7 @@ export default () => {
   function validateLogin() {
    if (password !== "" && email !== "") {
       const result = validLogin(email, password)
+      alert(result.data)
       if (result === "ok")
         setValidUser(true)
     }
@@ -20,7 +21,7 @@ export default () => {
 
   useEffect(()=> {
     if (validUser){
-      useNavigate("/#");
+      //useNavigate("/#");
 
     }
   
