@@ -1,36 +1,44 @@
 import '../App.css';
-import { validLogin } from '../api/user'
+import { validLoginFetch } from '../api/user'
 import React , { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default () => {
 
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail]  = useState("");
   const [password, setPassword]  = useState("");
-  const [validUser, setValidUser]  = useState(false);
+  const [userId, setUserId]  = useState("");
 
-  function validateLogin() {
-   if (password !== "" && email !== "") {
-      const result = validLogin(email, password)
-      alert(result.data)
-      if (result === "ok")
-        setValidUser(true)
+const fetchData = async () => {
+  setIsLoading(true);
+  try{
+    if (password !== "" && email !== "") {
+      const response = await validLoginFetch(email, password)
+      setUserId(response);
     }
+  } 
+  catch(err){
+    console.log(err.message);
+  } 
+  finally {
+    setIsLoading(false);
+  }
+}
 
-  };
+useEffect(() => {
+  if(userId !== ""){
+    console.log(userId)
+    //redirecionar
+  }
 
-  useEffect(()=> {
-    if (validUser){
-      //useNavigate("/#");
+});
 
-    }
-  
-  });
 
 
   return (
     <div className="login">
-      <form onSubmit={validateLogin}>
+      <form onSubmit={fetchData}>
         <div>
           <span>email</span>
           <input
@@ -50,7 +58,7 @@ export default () => {
           />
         </div>
         <button
-          onSubmit={validateLogin}
+          onSubmit={fetchData}
           id="authenticate-user-login"
           className="authenticate-user-login"
         >

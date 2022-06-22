@@ -2,6 +2,9 @@
   "name": "movie-work-now-app",
   "version": "0.1.0",
   "private": true,
+  "configuration": {
+    "runtimeArgs": ["--disable-web-security","--user-data-dir=~/ChromeUserData/"]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
