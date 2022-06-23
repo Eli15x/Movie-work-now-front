@@ -1,5 +1,5 @@
-import '../../App.css';
-import { validLogin } from '../../api/user'
+import './feed.css';
+import icon from '../../img/icon-movie.png'
 import React , { useEffect, useState } from "react";
 import {getUserIdCookie } from '../../utils/cookies';
 import { useNavigate } from "react-router-dom";
@@ -22,8 +22,9 @@ export default () => {
   });
 
   return (
-    <div className="login">
-      OK
+    <div className="bar-feed">
+      <div className="bar-icon"></div>
+      <div classname="bat-icon-movie"> <img className="icon-movie" src={icon}></img></div>
     </div>
 );
 
