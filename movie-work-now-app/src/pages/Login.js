@@ -1,5 +1,5 @@
 import '../App.css';
-import { validLoginFetch } from '../api/user'
+import { validLogin } from '../api/user'
 import React , { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,11 +10,13 @@ export default () => {
   const [password, setPassword]  = useState("");
   const [userId, setUserId]  = useState("");
 
-const fetchData = async () => {
+const fetchData = async event => {
+  event.preventDefault();
   setIsLoading(true);
+  
   try{
     if (password !== "" && email !== "") {
-      const response = await validLoginFetch(email, password)
+      const response = await validLogin(email, password)
       setUserId(response);
     }
   } 
@@ -33,7 +35,6 @@ useEffect(() => {
   }
 
 });
-
 
 
   return (
