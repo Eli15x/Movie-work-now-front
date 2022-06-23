@@ -1,6 +1,6 @@
-import '../App.css';
-import { validLogin } from '../api/user'
+import { validLogin } from '../../api/user'
 import React , { useEffect, useState } from "react";
+import './login.css'
 import { useNavigate } from "react-router-dom";
 
 export default () => {
@@ -36,26 +36,24 @@ useEffect(() => {
 
 });
 
-
   return (
     <div className="login">
+    <div className="login-form">
       <form onSubmit={fetchData}>
         <div>
-          <span>email</span>
           <input
             onChange={e => setEmail(e.target.value)}
             id="email"
             name="email"
-            placeholder=""
+            placeholder="email"
           />
         </div>
         <div>
-          <span>password</span>
           <input
             onChange={e => setPassword(e.target.value)}
             id="password"
             name="password"
-            placeholder=""
+            placeholder="Password"
           />
         </div>
         <button
@@ -65,8 +63,11 @@ useEffect(() => {
         >
           Login
         </button>
+        <span> Ainda não é membro?</span>
+        <a href="#" class="txt2 bo1"> cadastre agora </a>
       </form>
     </div>
+  </div>
 );
 
 }
