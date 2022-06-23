@@ -6,6 +6,7 @@ import { setUserIdCookie, getUserIdCookie } from '../../utils/cookies';
 
 export default () => {
 
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail]  = useState("");
   const [password, setPassword]  = useState("");
@@ -19,7 +20,7 @@ const fetchData = async event => {
     if (password !== "" && email !== "") {
       const response = await validLogin(email, password)
       setUserId(response);
-      setUserIdCookie(response)
+      setUserIdCookie(response);
     }
   } 
   catch(err){
@@ -31,8 +32,8 @@ const fetchData = async event => {
 }
 
 useEffect(() => {
-  if((userId !== "") && (getUserIdCookie() != "")){
-    //redirecionar
+  if((userId !== "") && (getUserIdCookie() !== "")){
+    navigate("/feed");
   }
 
 });

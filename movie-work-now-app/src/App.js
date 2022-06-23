@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import Login from "./pages/Login/Login"
-import Feed from "./pages/Feed"
+import Feed from "./pages/Feed/Feed"
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/login" element={<Login/>} />
           <Route path="/topics"/>
+          <Route path="/feed" element={<Feed/>} />
           <Route path="/#"  element={Feed}/>
         </Routes>
     </Router>
