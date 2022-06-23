@@ -2,6 +2,7 @@ import { validLogin } from '../../api/user'
 import React , { useEffect, useState } from "react";
 import './login.css'
 import { useNavigate } from "react-router-dom";
+import { setUserIdCookie, getUserIdCookie } from '../../utils/cookies';
 
 export default () => {
 
@@ -18,6 +19,7 @@ const fetchData = async event => {
     if (password !== "" && email !== "") {
       const response = await validLogin(email, password)
       setUserId(response);
+      setUserIdCookie(response)
     }
   } 
   catch(err){
@@ -29,8 +31,7 @@ const fetchData = async event => {
 }
 
 useEffect(() => {
-  if(userId !== ""){
-    console.log(userId)
+  if((userId !== "") && (getUserIdCookie() != "")){
     //redirecionar
   }
 
