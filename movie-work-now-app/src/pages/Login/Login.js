@@ -2,7 +2,8 @@ import { validLogin } from '../../api/user'
 import React , { useEffect, useState } from "react";
 import './login.css'
 import { useNavigate } from "react-router-dom";
-import { setUserIdCookie, getUserIdCookie } from '../../utils/cookies';
+import { setUserIdCookie, getUserIdCookie, setUserJwtCookie } from '../../utils/cookies';
+import { createJWT } from '../../utils/jwt';
 
 export default () => {
 
@@ -19,8 +20,10 @@ const fetchData = async event => {
   try{
     if (password !== "" && email !== "") {
       const response = await validLogin(email, password)
-      setUserId(response);
-      setUserIdCookie(response);
+      let jwt = createJWT(response)
+      setUserId(response.UserId);
+      setUserIdCookie(response.UserId);
+      setUserJwtCookie(jwt);
     }
   } 
   catch(err){

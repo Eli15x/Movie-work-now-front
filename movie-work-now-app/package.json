@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "configuration": {
-    "runtimeArgs": ["--disable-web-security","--user-data-dir=~/ChromeUserData/"]
+    "runtimeArgs": [
+      "--disable-web-security",
+      "--user-data-dir=~/ChromeUserData/"
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "base64url": "^3.0.1",
+    "buffer": "^6.0.3",
+    "crypto-js": "^4.1.1",
+    "decodeuricomponent": "^0.3.1",
     "js-cookie": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

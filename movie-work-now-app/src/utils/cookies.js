@@ -30,7 +30,7 @@ export const getUserJwtCookie = () => {
 
 export const setUserJwtCookie = (userJWT) => {
   if (!userJWT) {
-    console.log('GLOBO_ID inválido para inserção no cookie')
+    console.log('userJWT inválido para inserção no cookie')
   }
   Cookies.set('USERJWT', userJWT, { path: '/', secure: true })
 }
